@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Speech Recognition System</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+  <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+
+<br/><br/>
+
+  <section>
+    <div class="container">
+	
+		<div class="col text-center">
+            <h1>Voice Profiler</h1>
+            <p class="text-h3">An AI based voice profiler through speech recognition system. </p>
+        </div>
+		
+		<div class="row justify-content-center">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 text-justify">
+				<h5>Read Following Text:</h5>
+				This proverb is an important line which helps us in correcting our life cources. When our shirt or 
+				trousers get torn, we should mend then and there. That way the shirt or trousers can be used for some 
+				more time to come. But if we do not attend to a minor wear and tear, it will ultimately render the garmet 
+				completely unfit for use.<br/><br/> In the same way, a minor repair in the engine at the first detection of the detect,
+				or the plugging of a crack or hole in a boat, the moment it is noticed, will save many a future trouble. 
+				That is why it is said, and rightly so, that a stich in time saves nine.
+			</div>
+			
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+				<div class="outer-box">
+					<div class="inner-box2" id="box2">
+						<div class="heartbeatloader2">
+							 <div class="innercircle2"></div> 
+							<div class="outercircle2"></div>
+						</div> 
+					</div>
+					<!--  Voice waves animation when mic is on  -->
+					<div class="inner-box" id="box1">
+						<div class="heartbeatloader">
+							<svg class="svgdraw" width="100%" height="100%" viewbox="0 0 150 400" xmlns="http://www.w3.org/2000/svg" > 
+								<path class="path" d="m 0 200 l 40 0 l 5 -40 l 5 40 l 10 0 l 5 15 l 10 -140 l 10 220 l 5 -95 l 10 0 l 5 20 l 5 -20 l 30 0" fill="transparent" stroke-width="4" stroke="black"/> --> --> -->
+							</svg>
+							 <div class="innercircle"></div> 
+							<div class="outercircle"></div>
+						</div> 
+					</div>					
+				</div><br/>
+				<div class="btns" style="margin:10px auto;margin-left:41%;">
+					<button id="btnrec" class="btn btn-warning">Record  <i class="fa fa-microphone"></i></button>
+					<button id="btnstop" class="btn btn-warning">Stop  <i class="fa fa-stop"></i></button>
+				</div>
+			</div>
+			
+		</div>
+		<div class="col-lg-12 text-center">
+			<form  name="profiler_form" method="post" action="profiler.pythonscript" enctype="multipart/form-data">
+				<audio controls hidden="" name="pfile" id="pfile" src="horrible.wav" type ="audio/wav">your browser does not support Html5</audio>
+				<button class="btn btn-primary" type="submit" style="width:60%;">Check Voice Profile</button>
+			</form>
+        </div>
+		
+		<br/><br/>
+		
+	<table class="table table-striped">
+		<tbody>
+		  <tr>
+			<td>Name</td>
+			<td>Doe</td>
+		  </tr>
+		  <tr>
+			<td>Word Count Per Minute</td>
+			<td>23 wpm</td>
+		  </tr>
+		  <tr>
+			<td>Accuracy</td>
+			<td>76%</td>
+		  </tr>
+		  <tr>
+			<td>Emotion</td>
+			<td>Happy</td>
+		  </tr>
+		  <tr>
+			<td colspan="2" class="text-justify-content-center">
+				Emotion
+			</td>
+		  </tr>
+		</tbody>
+    </table>
+	
+	<br/><br/>
+	
+	<a href="index.html" class = "btn btn-danger mb-4">Logout</a>
+	
+		
+    </div>
+  </section>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
+	<script src="js/app.js"></script> 
+	
+	<script>
+	
+		$( document ).ready(function() {
+		    $("#box1").hide();
+			$("#btnstop").hide();
+			$("#btnrec").click(function(){
+				$("#box1").show();
+				$("#box2").hide();
+				$("#btnrec").hide();
+				$("#btnstop").show();
+				$(".path").removeClass("off");
+				$(".innercircle").removeClass("off");
+				$(".outercircle").removeClass("off");
+				
+			});
+			$("#btnstop").click(function(){
+				$("#btnrec").show();
+				$("#btnrec").html("Retry");
+				$("#btnstop").hide();
+				$(".path").addClass("off");
+				$(".innercircle").addClass("off");
+				$(".outercircle").addClass("off");
+			});	
+		});
+	</script>
+  </body>
+</html>
