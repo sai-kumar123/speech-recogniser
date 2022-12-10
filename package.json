@@ -20,7 +20,7 @@
   "homepage": "https://github.com/sai-kumar123/speech-recogniser#readme",
   "dependencies": {
     "ejs": "^2.6.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "nodemon": "^1.19.1"
   },
   "devDependencies": {}
